@@ -18,19 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    // Your logic here
-})->middleware(UpdateLastSeen::class);
 
-// Alternatively, you can group routes
-Route::middleware([UpdateLastSeen::class])->group(function () {
-    Route::get('/dashboard', function () {
-        // Your logic here
-    });
-    Route::get('/profile', function () {
-        // Another route requiring the middleware
-    });
-});
 Route::get('/lock', [LockScreenController::class, 'show'])->name('lock');
 Route::post('/unlock', [LockScreenController::class, 'unlock'])->name('unlock');
 Route::get('/organizations/register', [OrganizationController::class, 'view'])->name('organizations-register');
@@ -81,16 +69,9 @@ Route::post('/dispatch/record', 'DispatchController@record');
 Route::get('/about-us', function () {
     return view('about_us');
 })->name('about_us');
-Route::get('/', function () {
-    return view('welcome');
-});
-
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\RegisterController;
 
 
-Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
-Route::post('/register', [RegisterController::class, 'register']);
+
 
 // routes/web.php
 Route::get('/dashboard', function () {
