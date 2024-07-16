@@ -14,7 +14,7 @@
 
 
 
-                      <h5 class="mt-4 text-lg font-semibold">Online Responders:</h5>
+                      <h5 class="mt-4 text-lg font-semibold">Available Responders:</h5>
                             <form action="{{route('incident-send',['id'=>$incident->id])}}" method="POST">
                                 @csrf
                                 <div class="mb-2">

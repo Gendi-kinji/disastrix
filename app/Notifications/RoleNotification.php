@@ -50,7 +50,7 @@ class RoleNotification extends Notification
     public function toArray(object $notifiable): array
     {
         return [
-            'message'=> 'Your role has been changed to'.$this->role,
+            'message'=> 'Your role has been changed to'.$this->role->name,
             'role_name'=>$this->role->name,
             
         ];

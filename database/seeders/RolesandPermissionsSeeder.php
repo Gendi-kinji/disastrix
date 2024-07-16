@@ -22,6 +22,8 @@ class RolesandPermissionsSeeder extends Seeder
         Permission::create(['name' => 'edit respondents']);
         Permission::create(['name' => 'edit admins']);
         Permission::create(['name'=> 'edit incidents']);
+        Permission::create(['name'=>'edit statistics']);
+        Permission::create(['name'=> 'edit heads']);
         //Permission::create(['name'=> '']);
         // Create roles and assign created permissions
 
@@ -34,6 +36,8 @@ class RolesandPermissionsSeeder extends Seeder
         $admin->givePermissionTo('edit respondents');
         $admin->givePermissionTo('edit admins');
         $admin->givePermissionTo('edit incidents');
+        $admin->givePermissionTo('edit statistics');
+        $admin->givePermissionTo('edit heads');
 
         // Editor role
         $editor = Role::create(['name' => 'organization head']);

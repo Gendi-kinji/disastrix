@@ -61,6 +61,7 @@ return new class extends Migration
         Schema::create('organizations', function (Blueprint $table) {
             $table->id();
             $table->string('organization_name')->unique();
+            $table->string('emergency_type');
             $table->string('location');
             $table->string('latitude');
             $table->string('longitude');

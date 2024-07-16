@@ -31,6 +31,7 @@ class OrganizationController extends Controller
         $organization=Organization::create([
           'organization_name' => $request['name'],
           'location'=> $request['location'],
+          'emergency_type' => $request['emergency_type']
 
         ]);
 
@@ -51,11 +52,13 @@ class OrganizationController extends Controller
         $validatedData=$request->validate([
             'name' => 'required|string|max:255',
             'location'=>'required|string|max:300',
+            'emergency_type' => 'required'
 
         ]);
         $organization=Organization::findOrFail($id);
         $organization->organization_name=$request['name'];
         $organization->location=$request['location'];
+        $organization->emergency_type=$request['emergency_type'];
         $organization->save();
         return redirect()->route('view-organization',$id)->with('success','Organization details updated successfully');
     }

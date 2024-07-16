@@ -42,10 +42,10 @@
                                 @foreach ($users as $user)
                                     @foreach($heads as $head)
 
-                                        @if($responder->user_id == $user->id)
+                                        @if($head->user_id == $user->id)
                                            <tr>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                            {{ $head->user_id }}
+                                            {{ $head->id }}
                                             </td>
 
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
@@ -57,7 +57,7 @@
                                             </td>
 
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                            {{ $responder->organization }}
+                                            {{ $head->organization }}
                                             </td>
 
 

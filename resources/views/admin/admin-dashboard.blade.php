@@ -19,7 +19,7 @@
                         <p class="text-2xl">{{$activeincidents}}</p>
                     </div>
                     <div class="bg-gray-100 p-4 rounded-lg">
-                        <h4 class="text-lg">Responders Online</h4>
+                        <h4 class="text-lg">Available respondents</h4>
                         <p class="text-2xl">{{$activerespondents}}</p>
                     </div>
                 </div>
@@ -38,7 +38,7 @@
         var ctxIncidents = document.getElementById('incidentsChart').getContext('2d');
         var incidentsChart = new Chart(ctxIncidents, {
             type: 'pie',
-            
+
            data: {
                 labels: ['Solved incidents'],
                 datasets: [{
@@ -52,6 +52,14 @@
         var ctxUsers = document.getElementById('usersChart').getContext('2d');
         var usersChart = new Chart(ctxUsers, {
             type: 'line',
+            data: {
+                labels: ['Active incidents'],
+                datasets: [{
+                         label: 'Active incidents',
+                         backgroundColor: ['rgb(234, 179, 8)'],
+                         data:[{{$activeincidents}}],
+        }]
+      },
 
             options: {
                 responsive: true,

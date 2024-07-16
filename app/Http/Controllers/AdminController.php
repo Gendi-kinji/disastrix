@@ -50,7 +50,7 @@ class AdminController extends Controller
 
 
 
-        return view('admin.show-users', ['users' => $this->users,'admincount' => $this->admincount,'organization_headcount'=>$this->organization_headcount],['roles' => $this->roles]);
+        return view('admin.show-users', ['users' => $this->users,'admincount' => $this->admincount,'organization_headcount'=>$this->organization_headcount,''],['roles' => $this->roles]);
     }
     public function viewAdmins(){
         return view('admin.show-admins',['users'=>$this->users],['admins'=> $this->admins]);
@@ -118,7 +118,7 @@ class AdminController extends Controller
 
 
         // Redirect back with a success message
-        return redirect()->route('edit-user', $user->id)->with('success', 'User information updated successfully.');
+        return redirect()->route('users')->with('success', 'User information updated successfully.');
     }
 
 public function AdminRegister(){
@@ -174,7 +174,8 @@ public function addAdmin(Request $request) {
 
     public function viewOrganizationHeads(){
         $heads=Head::all();
-        return view('organization.head-view',compact('heads'));
+        $users=User::all();
+        return view('organization.head-view',compact('heads','users'));
     }
     public function deleteOrganizationHead($id){
         $head = Head::findOrFail($id);

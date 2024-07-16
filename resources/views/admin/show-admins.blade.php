@@ -37,7 +37,7 @@
                                         @if($admin->user_id == $user->id)
                                            <tr>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                            {{ $admin->user_id }}
+                                            {{ $admin->id }}
                                             </td>
 
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">

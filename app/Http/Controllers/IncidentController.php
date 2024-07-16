@@ -18,8 +18,7 @@ class IncidentController extends Controller
      */
     public function index()
     {
-        $incidents = Incident::all()
-                        ->paginate(10);
+        $incidents = Incident::all();
         return view('organization.incident-view',compact('incidents'));
     }
 
@@ -105,6 +104,7 @@ class IncidentController extends Controller
 
            Notification::send($user,new IncidentNotification($incident));
            }
+           
        }
 
           return view('deploy.emergency-progress',compact('incident'),compact('nearestOrganization'));

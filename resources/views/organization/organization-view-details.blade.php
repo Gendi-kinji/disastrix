@@ -18,7 +18,12 @@
                         <strong>Location:</strong> {{ $organization->location }}
                     </div>
 
-                    
+                    <div class="mb-4">
+                        <strong>Emergency type:</strong> {{ $organization->emergency_type }}
+                    </div>
+
+
+
                 </div>
             </div>
         </div>

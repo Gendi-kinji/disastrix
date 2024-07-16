@@ -23,13 +23,11 @@ class ResponderController extends Controller
     public function index()
     {
         $users=User::all();
-        $responders=Responder::all()
-                        ->paginate(10);
+        $responders=Responder::all();
         if(Auth::user()->role_id==3){
             $head=Head::where('user_id',Auth::user()->id)->first();
             $organization=$head->organization;
-            $responders=Responder::where('organization',$organization)->get()
-                         ->paginate(10);
+            $responders=Responder::where('organization',$organization)->get();
         }
         return view('organization/responder-view', compact('responders','users'));
 

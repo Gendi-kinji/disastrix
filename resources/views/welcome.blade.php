@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
+
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -42,7 +44,7 @@
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
           <li><a href="{{ route('login') }}" class="rounded-md px-3 py-2 ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20]" >Log in</a></li>
            <li><a href="{{ route('register') }}" class="rounded-md px-3 py-2 ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20]" >Register</a></li>
-         
+
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
@@ -54,7 +56,7 @@
     <div class="hero-container" data-aos="zoom-in" data-aos-delay="100">
       <h1>Welcome to Disastrix</h1>
       <h2>Your reliable companion for emergency services information in Kenya.</h2>
-      <a href="#about" class="btn-get-started">Get Started</a>
+      <a href="{{route('incident-report')}}" class="btn-get-started">Get Started</a>
     </div>
   </section>
 

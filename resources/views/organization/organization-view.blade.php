@@ -27,6 +27,10 @@
                                     <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Location
                                     </th>
+                                    <th scope="col" class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Emergency type
+                                    </th>
+
 
 
                                     <th scope="col" width="200" class="px-6 py-3 bg-gray-50">
@@ -48,6 +52,9 @@
 
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                                             {{ $organization->location}}
+                                        </td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                            {{ $organization->emergency_type}}
                                         </td>
 
 

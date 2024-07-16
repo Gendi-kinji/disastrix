@@ -22,6 +22,7 @@ class Organization extends Model
     protected $fillable=[
         'organization_name',
         'location',
-        
+        'emergency_type',
+
     ];
 }

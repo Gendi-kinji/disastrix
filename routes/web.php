@@ -10,15 +10,28 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\LockScreenController;
-use App\Http\Middleware\UpdateLastSeen;
+
 use App\Http\Middleware\LockMiddleware;
 
 
 Route::get('/', function () {
-    return view('welcome');
+     return view('welcome');
+   });
+
+
+   Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/dashboard', function () {
+        $user=Auth::user();
+        if($user->role_id==2){
+            return redirect()->route('calculate-statistics');
+        }else{
+        return view('dashboard');}
+    })->name('dashboard')->middleware((LockMiddleware::class));
 });
-
-
 Route::get('/lock', [LockScreenController::class, 'show'])->name('lock');
 Route::post('/unlock', [LockScreenController::class, 'unlock'])->name('unlock');
 Route::get('/organizations/register', [OrganizationController::class, 'view'])->name('organizations-register');
@@ -63,9 +76,7 @@ Route::get('/respondents', 'RespondentController@index');
 Route::post('/respondents/call', 'RespondentController@call');
 Route::post('/respondents/text', 'RespondentController@text');
 
-Route::get('/dispatch', 'DispatchController@index');
-Route::post('/dispatch/handle', 'DispatchController@handle');
-Route::post('/dispatch/record', 'DispatchController@record');
+
 Route::get('/about-us', function () {
     return view('about_us');
 })->name('about_us');
@@ -74,6 +85,4 @@ Route::get('/about-us', function () {
 
 
 // routes/web.php
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+

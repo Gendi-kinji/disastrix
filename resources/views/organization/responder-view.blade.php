@@ -7,7 +7,7 @@
 
     <div>
         <div class="max-w-6xl mx-auto py-10 sm:px-6 lg:px-8">
-            
+
             <div class="flex flex-col">
                 <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                     <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -47,7 +47,7 @@
                                         @if($responder->user_id == $user->id)
                                            <tr>
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                            {{ $responder->user_id }}
+                                            {{ $responder->id }}
                                             </td>
 
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
@@ -63,13 +63,13 @@
                                             </td>
 
                                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                                                {{ $user->is_online ? 'Online' : 'Offline' }}
+                                                {{ $responder->status }}
                                             </td>
 
 
                                           <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
 
-                                           
+
                                             <form class="inline-block" action="{{route('delete-responder',['id'=>$responder->id])}}" method="POST" onsubmit="return confirm('Are you sure?');">
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">

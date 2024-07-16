@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-app-layout>
     <x-authentication-card>
         <x-slot name="logo">
             <x-authentication-card-logo />
@@ -71,7 +71,7 @@
 
         console.log('Distance: ' + distance + ' meters');
         console.log('Travel Time: ' + travelTime + ' seconds');
-        document.getElementById('time').innerHTML =`<p>It will take${Math.floor(travelTime/60)}minutes to arrive at the destination</p>`;
+        document.getElementById('time').innerHTML =`<p>It will take${Math.floor(travelTime/60)}minutes for the nearest organization, {{$nearestOrganization->organization_name}} to arrive at the destination</p>`;
       })
       .catch(function (error) {
         console.error('Error calculating route:', error);
@@ -86,4 +86,4 @@
 
         </script>
     </x-authentication-card>
-</x-guest-layout>
+</x-app-layout>
