@@ -45,10 +45,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('secondary_email');
+            $table->string('secondary_email')->default('user300@gmail.com');
             $table->timestamp('email_verified_at')->nullable();
             //$table->integer('role_id');
-            $table->foreignId('role_id')->references('id')->on('roles')->onDelete('cascade')->onUpdate('cascade'); // Adjusted to reference roles table
+            $table->foreignId('role_id')->references('id')->on('roles')->default(1)->onDelete('cascade')->onUpdate('cascade'); // Adjusted to reference roles table
             $table->string('password');
             $table->boolean('is_online')->nullable();
             $table->rememberToken();
